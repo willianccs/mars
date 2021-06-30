@@ -20,7 +20,8 @@ def main():
     except ValueError:
         print("Erro ao converter para número inteiro. Certifique-se de inserir apenas um número")
         return
-    dims = input("Insira as dimensões da planalto separado por espaço (ex: 5 5): ")
+    dims = input(
+        "Insira as dimensões do planalto (area) separado por espaço (ex: 5 5): ")
     planalto = criar_planalto(dims)
     if type(planalto) is str:
         print(planalto)
@@ -29,12 +30,14 @@ def main():
     sonda_arr = []
     i = 0
     while i < qtd_sonda:
-        pos = input("Insira as coordenadas X, Y, D - posicao e direcao - para a sonda (ex: 1 3 N): ")
+        pos = input(
+            "Insira as coordenadas X, Y, D - posicao e direcao - para a sonda (ex: 1 2 N): ")
         rov = criar_sonda(pos, planalto)
         if type(rov) is str:
             print(rov)
         else:
-            direcoes = input("Insira os comandos (sequencia de movimentos) para a sonda - L,M,R: ")
+            direcoes = input(
+                "Insira os comandos (sequencia de movimentos) para a sonda - L,M,R (ex: LMLMLMLMM): ")
             sonda_arr.append(executar_comandos(planalto, rov, direcoes))
             i = i + 1
 
